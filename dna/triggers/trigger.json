@@ -1,0 +1,16 @@
+{
+	"title": "Trigger Schema",
+	"type": "object",
+	"properties": {
+		"eventName": {
+			"type": "string"
+		},
+		"data": {
+			"type": "string"
+		},
+    "time": {
+			"type": "string"
+		}
+	},
+    "required": ["eventName","time"]
+}

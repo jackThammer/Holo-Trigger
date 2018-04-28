@@ -3,7 +3,7 @@
     "UUID": "70024b4c-4af2-11e8-bc98-f48e38e90001",
     "Name": "Holo-Trigger",
     "Properties": {
-        "description": "provides an application template",
+        "description": "Triggering an Event",
         "language": "en"
     },
     "PropertiesSchemaFile": "properties_schema.json",
@@ -20,39 +20,33 @@
         "PubKey": null
     },
     "Zomes": [
-        {
-            "Name": "sampleZome",
-            "Description": "provide a sample zome",
-            "CodeFile": "sampleZome.js",
-            "RibosomeType": "js",
-            "BridgeFuncs": null,
-            "Config": null,
-            "Entries": [
-                {
-                    "Name": "sampleEntry",
-                    "DataFormat": "json",
-                    "Schema": "",
-                    "SchemaFile": "sampleEntry.json",
-                    "Sharing": "public"
-                }
-            ],
-            "Functions": [
-                {
-                    "Name": "sampleEntryCreate",
-                    "CallingType": "json",
-                    "Exposure": "public"
+      {
+                "Name": "triggers",
+                "Description": "triggers mixin",
+                "RibosomeType": "js",
+                "CodeFile": "triggers.js",
+                "Config": {
+                  "ErrorHandling": "throwErrors"
                 },
-                {
-                    "Name": "sampleEntryRead",
-                    "CallingType": "json",
-                    "Exposure": "public"
-                },
-                {
-                    "Name": "doSampleAction",
-                    "CallingType": "json",
-                    "Exposure": "public"
-                }
-            ]
+                "Entries": [
+                    {
+                        "Name": "trigger",
+                        "DataFormat": "json",
+                        "SchemaFile": "trigger.json",
+                        "Sharing": "public"
+                    },
+                    {
+                        "Name": "trigger_link",
+                        "DataFormat": "links"
+                    }
+                ],
+                "Functions": [
+                    {
+                        "Name": "trigger",
+                        "CallingType": "json",
+                        "Exposure": "public"
+                    }
+                ]
         }
     ]
 }
